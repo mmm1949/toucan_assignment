@@ -1,10 +1,59 @@
 # Transaction Starter Project
 
-This is the starter project for the Customer Transactions exercise.
+This project provides a Spring Boot starter for managing customer transactions. It is designed to support the core flow of creating, retrieving, updating, and listing transaction records for a customer.
 
-## Before you start
+## What this project can handle
 
-The first thing you should do after cloning the repository is:
+The application is intended to manage the following transaction operations:
+
+- Create a new transaction
+- Fetch a single transaction by ID
+- Update the status of an existing transaction
+- Retrieve all transactions for a specific customer
+
+### Transaction model
+
+Each transaction includes:
+
+- Transaction ID
+- Customer ID
+- Amount
+- Currency
+- Transaction Type
+- Status
+
+### Validation expectations
+
+The application should enforce that required transaction data is present and valid before storing or updating records. At a minimum, the following should be validated:
+
+- Transaction ID is provided
+- Customer ID is provided
+- Amount is positive and valid
+- Currency is supplied and supported
+- Transaction type is supplied
+- Initial status is valid
+
+Additional business validation can be added as needed to protect the integrity of transaction processing.
+
+### API capabilities
+
+The project supports a REST-style API for:
+
+- Creating transactions
+- Reading a transaction by ID
+- Updating a transaction status
+- Listing all transactions for a given customer
+
+## Example flow
+
+1. Create a transaction with customer and amount details.
+2. Retrieve it by transaction ID to confirm it was created.
+3. Update its status as the workflow progresses.
+4. Query all transactions linked to the same customer.
+
+## Project setup
+
+Clone the repository and run the project tests using:
 
 ### Linux / macOS
 
@@ -18,92 +67,23 @@ The first thing you should do after cloning the repository is:
 mvnw.cmd clean test
 ```
 
-The sample test should pass before you begin implementing the exercise.
-
-## What is already provided
+This starter includes:
 
 - Java 17
 - Spring Boot
-- Maven wrapper
+- Maven Wrapper
 - Spring Web
 - Spring Data JPA
 - H2 embedded database
 - JUnit / Spring Boot Test
-- A sample REST endpoint: `GET /api/sample`
-- A sample test that loads the Spring context
+- Sample REST endpoint: `GET /api/sample`
 
+## Known limitations
 
-## Exercise
+1. There is no built-in authentication or authorisation layer for protecting transaction endpoints.
+2. The project does not include multi-tenant, audit-trail, or payment-processing features beyond the basic transaction lifecycle.
 
-Implement these four operations:
+## Notes
 
-1. Create transaction
-2. Get transaction
-3. Update transaction status
-4. Get all transactions for a customer
-
-
-You may change the surrounding design if you believe your solution is better.
-
-## Transaction fields
-
-Every transaction contains:
-
-- Transaction ID
-- Customer ID
-- Amount
-- Currency
-- Transaction Type
-- Transaction Status
-
-### Validation rules
-
-Define what makes a transaction valid. At minimum, consider:
-
-- Transaction ID
-- Customer ID
-- Amount
-- Currency
-- Transaction type
-- Initial status
-
-Also explain any business validation you add beyond the annotations already supplied.
-
-## API skeleton
-
-### Create
-
-`TODO`
-
-Example:
-
-```
-TODO
-```
-
-### Get
-
-`TODO`
-
-### Update status
-
-`TODO`
-
-Example:
-
-```
-TODO
-```
-
-### Get customer transactions
-
-`TODO`
-
-## Testing expectations
-
-Add at least four meaningful tests.
-
-Your tests should cover more than just application startup. 
-
-You decide exactly which tests provide the best coverage.
+This project is intended as a starter for transaction management and can be extended with additional validation, business rules, and API documentation as required.
 
